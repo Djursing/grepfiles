@@ -64,17 +64,17 @@ To use the script, you can either pipe input into it or redirect input from a fi
 
 ```bash 
 # Piping input from another command
-cat file.txt | grepfiles.sh
+cat file.txt | grepfiles
 
 # Redirecting input from a file
-grepfiles.sh < file.txt
+grepfiles < file.txt
 ```
 
 ## Help Options
 
 You can access the help menu by passing the -h or --help option:
 ```bash
-grepfiles.sh -h
+grepfiles -h
 ```
 
 ## Practical Example
@@ -90,7 +90,7 @@ aaaa.gaaaa.goo aaaa.go aaaa.go aaaa.go Users/worksapacesdf/somethin.go Users/wor
 
 #### Command
 ```bash
-grepfiles.sh < file.txt | uniq -c | sort -nr
+grepfiles < file.txt | uniq -c | sort -nr
 ```
 
 #### Output
