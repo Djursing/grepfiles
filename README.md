@@ -16,7 +16,6 @@ Duplicates are kept to ensure flexibility
 </details>
 
 ## Prerequisites
-
 Before running this script, ensure you have `grep` and `sort` installed on your system, as it relies on these utilities:
 
 ```bash
@@ -26,10 +25,38 @@ sort --version
 
 
 ## Installation
-No formal installation is required. Simply download the script and set it as executable:
+No formal installation is required. Simply download the script and set it as executable:\
+That being said. Never trust scripts blindly.\
+Give the source code a look before running :)
+
+#### Cloning
+```bash
+git clone git@github.com:Djursing/grepfiles.git
+```
+
+#### Make script executable
 ```bash
 chmod +x grepfiles.sh
 ```
+
+#### Move to local bin folder
+```bash
+mv grepfiles/.grepfiles.sh /usr/local/bin/grepfiles
+```
+
+#### PATH
+Make sure your path includes `/usr/local/bin`.\
+Here are some ways to do it with `.profile` and `.bashrc`.
+```bash
+# ~/.profile
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+# ~/.bashrc
+export PATH=$PATH:/usr/local/bin
+```
+
 
 ## Usage
 
@@ -52,7 +79,9 @@ You can access the help menu by passing the -h or --help option:
 
 ## Practical Example
 
+### Input from a file
 To find and sort all referenced files in a document and count each occurrence, you can chain commands like this:
+
 #### Contents of file.txt
 ```bash
 asdfasdf somefile.c++,asdfasfd Users/worksapacesdf/somethin.go  asdf asoijojweiofjwf owfnmsodkf nsak;fnkwenf wsomething.1.ada sadfasdfsdafsadfsdafasdfonewoifnweoi
@@ -63,10 +92,29 @@ aaaa.gaaaa.goo aaaa.go aaaa.go aaaa.go Users/worksapacesdf/somethin.go Users/wor
 ```bash
 ./grepfiles.sh < file.txt | uniq -c | sort -nr
 ```
+
 #### Output
 ```bash
 4 aaaa.go
 3 Users/worksapacesdf/somethin.go
 1 wsomething.1.ada
 1 somefile.c++
+```
+
+### Find files from git commits
+This script idea initially came from my other projected called [hotspot](https://github.com/Djursing/hotspot), which returns number of occurrences of files in git commits with a specific grep string.
+It did a decent job at bringing attention to files often occurring in bugfixes, but it was limited to git logs only. 
+
+#### Command
+```bash
+git log -E --grep 'chore|fix' --name-only --since '1 year' | grepfiles | uniq -c | sort -nr
+```
+
+#### Output
+```bash
+4 README.md
+3 example.png
+2 investigator.sh
+1 LICENSE.txt
+1 fixfinder.sh
 ```
