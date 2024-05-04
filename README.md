@@ -34,14 +34,19 @@ Give the source code a look before running :)
 git clone git@github.com:Djursing/grepfiles.git
 ```
 
+#### Move to directory
+```bash
+cd grepfiles
+```
+
 #### Make script executable
 ```bash
-chmod +x grepfiles.sh
+chmod +x ./grepfiles.sh
 ```
 
 #### Move to local bin folder
 ```bash
-mv grepfiles/.grepfiles.sh /usr/local/bin/grepfiles
+mv .grepfiles.sh /usr/local/bin/grepfiles
 ```
 
 #### PATH
