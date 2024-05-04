@@ -102,7 +102,7 @@ aaaa.gaaaa.goo aaaa.go aaaa.go aaaa.go Users/worksapacesdf/somethin.go Users/wor
 ```
 
 ### Find files from git commits
-This script idea initially came from my other projected called [hotspot](https://github.com/Djursing/hotspot), which returns number of occurrences of files in git commits with a specific grep string.
+This script idea initially came from my other projected called [hotspot](https://github.com/Djursing/hotspot), which returns number of occurrences of files in git commits with a commit desctiption matching a specific regex string.
 It did a decent job at bringing attention to files often occurring in bugfixes, but it was limited to git logs only. 
 
 #### Command
