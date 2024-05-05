@@ -115,7 +115,6 @@ It did a decent job at bringing attention to files often occurring in bugfixes, 
 git log -E --grep 'chore|fix' --name-only --since '1 year' | grepfiles | uniq -c | sort -nr
 ```
 
-This is not the best example output due to my commit history being bismal on this branch, but hopefully you get the idea.
 #### Output
 ```bash
 4 README.md
@@ -124,3 +123,5 @@ This is not the best example output due to my commit history being bismal on thi
 1 LICENSE.txt
 1 fixfinder.sh
 ```
+
+This is not the best example output due to my commit history being bismal on this branch, but hopefully you get the idea.
