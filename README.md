@@ -46,7 +46,7 @@ chmod +x ./grepfiles.sh
 
 #### Move to local bin folder
 ```bash
-mv .grepfiles.sh /usr/local/bin/grepfiles
+mv ./grepfiles.sh /usr/local/bin/grepfiles
 ```
 
 #### PATH
